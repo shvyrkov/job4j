@@ -1,5 +1,3 @@
-# Репозиторий Швыркова Юрия.
+# Repository of Shvyrkov Yuri.
 
-Я прохожу обучение по курсу Job4j. Планирую пройти его к концу 2018 года.
-
-Ниже находятся наиболее интересные проекты, которые были реализованы во время обучения.
+I take courses on Job4j. I am going to finish my studing by the end of 2018 year.
