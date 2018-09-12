@@ -6,4 +6,4 @@ package ru.job4j.calculate;
 
 	System.out.println("Hello World");
 	}
- }
+ }/
