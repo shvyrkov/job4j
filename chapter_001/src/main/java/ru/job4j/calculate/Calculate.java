@@ -16,4 +16,12 @@ package ru.job4j.calculate;
 
 	System.out.println("Hello World");
 	}
+	/**
+* Method echo.
+* @param name Yuri Shvyrkov.
+* @return Echo plus Yuri Shvyrkov.
+*/
+public String echo(String name) {
+    return "Echo, echo, echo : " + name;
+}
  }
