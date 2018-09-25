@@ -1,5 +1,5 @@
 /**
-* Calculate - класс для вывода на экран надписи "Hello World".
+* Calculate - класс для вывода на экран надписи "Hello World"
 *
 * @author Yuri Shvyrkov (mailto:shvyrkov@yandex.ru)
 * @version 1.0
