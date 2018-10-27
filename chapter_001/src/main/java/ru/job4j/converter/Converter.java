@@ -10,9 +10,9 @@ public class Converter {
     /**
      * euro, dollar, ruble - возвращаемые параметры.
      */
-    private int euro;
-    private int dollar;
-    private int ruble;
+//   private int euro;
+//   private int dollar;
+//   private int ruble;
     /**
      * Конвертируем рубли в евро.
      * @param value рубли.
@@ -20,7 +20,7 @@ public class Converter {
      */
     public int rubleToEuro(int value) {
 		int euro = value / 75;
-        return this.euro;
+        return euro;
     }
     /**
      * Конвертируем рубли в доллары.
@@ -29,7 +29,7 @@ public class Converter {
      */
     public int rubleToDollar(int value) {
 		int dollar = value / 65;
-        return this.dollar;
+        return dollar;
     }
 	/**
      * Конвертируем евро в рубли.
@@ -38,7 +38,7 @@ public class Converter {
      */
     public int euroToRuble(int value) {
 		int ruble = value * 75;
-        return this.ruble;
+        return ruble;
     }
     /**
      * Конвертируем доллары в рубли.
@@ -47,6 +47,6 @@ public class Converter {
      */
     public int dollarToRuble(int value) {
 		int ruble = value * 65;
-        return this.ruble;
+        return ruble;
     }
 }
