@@ -28,7 +28,7 @@ public class Point {
 /**
 * Метод для расчёта расстояния от текущей точки до заданной.
 * @param that - заданная точка типа Point
-* @return result - расстояние до заданной точки
+* @return - расстояние до заданной точки
 */		
 	public double distanceTo(Point that) {
 //Точка А - текущая точка. К ней мы обращаемся через оператор this.
@@ -58,7 +58,6 @@ public class Point {
 		System.out.println("y2 = " + b.y);
 //Вызов метода для определения расстояния между точками и его вывод на консоль.
     double result = a.distanceTo(b);
-//    System.out.println("Расстояние между точками А и В : " + result);
 		System.out.print("Distance between A and B : " + result);
  	}
 	
