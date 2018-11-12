@@ -68,11 +68,6 @@ public double area() {
 * @return triangle=false, если треугольника нет
 */
 private boolean exist(double ab, double ac, double bc) {
-   boolean triangle = true;
-	if ((ab + ac) == bc | (ab + bc) == ac | (bc + ac) == ab) {
-    triangle = false;
+	return   ((ab + ac) > bc && (ab + bc) > ac && (bc + ac) > ab);
 	}
-    return triangle;
-}
-
 }
