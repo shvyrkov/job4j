@@ -13,8 +13,8 @@ package ru.job4j.loop;
  /**
  *Задание начала (start) и конца (finish) диапазона для подсчета суммы.
  */
-	private int start;
-	private int finish;
+//	private int start;
+//	private int finish;
 	
 /**
  *Метод add для подсчета суммы чётных чисел в заданном диапазоне.
