@@ -1,8 +1,8 @@
 /**
-* Package for CounterTest, FactorialTest task.
+* Package for CounterTest, FactorialTest, BoardTest task.
 *
 * @author Yuri Shvyrkov (mailto:shvyrkov@yandex.ru)
-* @version 1.1
-* @since 2018.11.14
+* @version 1.2
+* @since 2018.11.15
 */
 package ru.job4j.loop;

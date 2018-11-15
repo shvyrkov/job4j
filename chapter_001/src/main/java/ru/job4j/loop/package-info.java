@@ -1,5 +1,5 @@
 /**
-* Package for Counter, Factorial task.
+* Package for Counter, Factorial, Board task.
 *
 * @author Yuri Shvyrkov (mailto:shvyrkov@yandex.ru)
 * @version 1.1
