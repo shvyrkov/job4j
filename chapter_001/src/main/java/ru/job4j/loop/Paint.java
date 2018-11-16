@@ -35,13 +35,13 @@ public class Paint {
         }
         return screen.toString();
     }
-}
-/*
+
+/**
 * Метод rightTrl для построения правосторонней пирамиды заданной высоты.
 *
-* @param heigth - высота пирамиды.
+* @param height - высота пирамиды.
 * @return - правосторонняя пирамида.
-
+*/
     public String rightTrl(int height) {
         // Буфер для результата.
         StringBuilder screen = new StringBuilder();
@@ -65,11 +65,12 @@ public class Paint {
         // Получаем результат.
         return screen.toString();
     }
-	
+/**	
 * Метод leftTrl для построения левосторонней пирамиды заданной высоты.
 *
-* @param heigth - высота пирамиды.
+* @param height - высота пирамиды.
 * @return - правосторонняя пирамида.	
+*/
 	public String leftTrl(int height) {
 		StringBuilder screen = new StringBuilder();
 		int weight = height;
@@ -86,4 +87,3 @@ public class Paint {
 		return screen.toString();
 	}
 }
-*/

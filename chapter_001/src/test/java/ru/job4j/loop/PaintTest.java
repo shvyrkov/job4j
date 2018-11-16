@@ -8,6 +8,8 @@ import static org.junit.Assert.*;
 /**Тесты для класса PaintTest:
  * 1. Построение пирамиды высотой 2.
  * 2. Построение пирамиды высотой 3.
+ * 3. Построение правосторонней пирамиды.
+ * 4. Построение левосторонней пирамиды.
  * 
  *@author Shvyrkov Yuri (mailto: shvyrkov@yandex.ru)
  *@version 1.0
@@ -53,10 +55,10 @@ public class PaintTest {
                 )
         );
     }
-}
-/*
- * 1. Построение правосторонней пирамиды.
 
+/**
+ * 3. Построение правосторонней пирамиды.
+*/
     @Test
     public void whenPyramid4Right() {
         Paint paint = new Paint();
@@ -74,9 +76,9 @@ public class PaintTest {
                 )
         );
     }
-**
- * 2. Построение левосторонней пирамиды.
- *
+/**
+ * 4. Построение левосторонней пирамиды.
+ */
 	@Test
 	public void whenPyramid4Left() {
 		Paint paint = new Paint();
@@ -94,4 +96,3 @@ public class PaintTest {
 		);
 	}
 }
-*/
