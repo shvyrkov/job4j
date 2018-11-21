@@ -1,8 +1,8 @@
 /**
-* Package for Square task.
+* Package for SquareTest, FindLoopTest, TurnTest task.
 *
 * @author Yuri Shvyrkov (mailto:shvyrkov@yandex.ru)
-* @version 1.0
-* @since 2018.11.18
+* @version 1.2
+* @since 2018.11.21
 */
 package ru.job4j.array;
