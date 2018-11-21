@@ -16,13 +16,10 @@ package ru.job4j.array;
 	public boolean mono(boolean[] data) {
         boolean result = false;
 		int temptrue = 0;
-//		int tempfalse = 0;
         for (int i = 0; i < data.length; i++) {
 			if (data[i]) {
 				temptrue++;
-//			} else {
-//				tempfalse++;
-				}
+			}
 		}
 		if ((temptrue == data.length) | (temptrue == 0)) {
 			result = true;
