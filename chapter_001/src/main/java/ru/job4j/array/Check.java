@@ -15,15 +15,14 @@ package ru.job4j.array;
 */		
 	public boolean mono(boolean[] data) {
         boolean result = false;
-		int temptrue = 0;
         for (int i = 0; i < data.length; i++) {
-			if (data[i]) {
-				temptrue++;
+			if (data[0] ^ data[i]) {
+				result = false;
+				break;
+			} else {
+				result = true;
 			}
 		}
-		if ((temptrue == data.length) | (temptrue == 0)) {
-			result = true;
-			}
         return result;
     }
 }

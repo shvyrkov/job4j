@@ -42,12 +42,12 @@ public class CheckTest {
         assertThat(result, is(true));
     }
 /**
-*Задан массив {true, false, false, true} с чётным количеством элементов. Результат: false.
+*Задан массив {true, true, false, true} с чётным количеством элементов. Результат: false.
 */
     @Test
     public void whenDataNotMonoByTrueThenFalseEven() {
         Check check = new Check();
-        boolean[] input = new boolean[] {true, false, false, true};
+        boolean[] input = new boolean[] {true, true, false, true};
         boolean result = check.mono(input);
         assertThat(result, is(false));
     }	
