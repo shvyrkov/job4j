@@ -37,4 +37,17 @@ public class TwoInOneSortTest {
 		int[] expect = {2, 4, 6, 7, 8, 9, 9};
 		assertThat(result, is(expect));
 	}
+	/**
+	 * Тест, слияния двух отсортированных массивов {1,2,6,8,8} и {2,4,6,9}
+	 */
+	@Test
+	public void when12688with2469() {
+
+		TwoInOneSort x = new TwoInOneSort();
+		int[] arrayOne = {1, 2, 6, 8, 8};
+		int[] arrayTwo = {2, 4, 6, 9};
+		int[] result = x.mergerTwoInOne(arrayOne, arrayTwo);
+		int[] expect = {1, 2, 2, 4, 6, 6, 8, 8, 9};
+		assertThat(result, is(expect));
+	}
 }

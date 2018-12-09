@@ -20,9 +20,6 @@ package ru.job4j.array;
 		int k = 0;
 		int[] array = new int[arrayOne.length + arrayTwo.length];
 		
-//		for (int i = 0; i < arrayOne.length; ) {			
-//			for (int j = 0; j < arrayTwo.length; ) {
-	
 		while (i < arrayOne.length && j < arrayTwo.length) {
 				
 			if (arrayOne[i] < arrayTwo[j]) {					
@@ -34,8 +31,8 @@ package ru.job4j.array;
 		while (i < arrayOne.length) {
 		array[k++] = arrayOne[i++];	
 		}
-		while (i < arrayTwo.length) {
-		array[k++] = arrayTwo[i++];
+		while (j < arrayTwo.length) {
+		array[k++] = arrayTwo[j++];
 		}
 	return array;
 	}
