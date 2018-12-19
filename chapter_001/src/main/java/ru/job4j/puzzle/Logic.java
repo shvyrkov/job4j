@@ -69,7 +69,6 @@ public class Logic {
     public boolean isWin() {
         int[][] table = this.convert();
         boolean result = false;
-//Подсчёт единиц в строке.		
 		for (int row = 0; row < table.length; row++) {
 			int sum = 0;
 			for (int cell = 0; cell < table.length; cell++) {
@@ -81,7 +80,6 @@ public class Logic {
 				result = true;
 			}
 		}
-//Подсчёт единиц в столбце.			
 		for (int cell = 0; cell < table.length; cell++) {
 			int sum = 0;
 			for (int row = 0; row < table.length; row++) {

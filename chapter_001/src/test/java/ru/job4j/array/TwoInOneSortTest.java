@@ -16,7 +16,6 @@ public class TwoInOneSortTest {
 	 */
 	@Test
 	public void when12357with246() {
-
 		TwoInOneSort x = new TwoInOneSort();
 		int[] arrayOne = {1, 3, 5, 7};
 		int[] arrayTwo = {2, 4, 6};
@@ -29,7 +28,6 @@ public class TwoInOneSortTest {
 	 */
 	@Test
 	public void when789with2469() {
-
 		TwoInOneSort x = new TwoInOneSort();
 		int[] arrayOne = {7, 8, 9};
 		int[] arrayTwo = {2, 4, 6, 9};
@@ -42,7 +40,6 @@ public class TwoInOneSortTest {
 	 */
 	@Test
 	public void when12688with2469() {
-
 		TwoInOneSort x = new TwoInOneSort();
 		int[] arrayOne = {1, 2, 6, 8, 8};
 		int[] arrayTwo = {2, 4, 6, 9};

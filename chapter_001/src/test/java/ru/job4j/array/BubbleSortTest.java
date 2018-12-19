@@ -16,7 +16,6 @@ public class BubbleSortTest {
 	 */
 	@Test
 	public void whenSortArrayWithTenElementsThenSortedArray() {
-
 		BubbleSort testbubble = new BubbleSort();
 		int[] bubble = {1, 5, 4, 2, 3, 1, 7, 8, 0, 5};
 		int[] result = testbubble.sort(bubble);

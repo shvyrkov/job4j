@@ -10,18 +10,14 @@ import static java.lang.Math.*;
  *@since 2018.11.18
  */
  public class Square {
-
  /**
 * Метод calculate заполненяет массив заданного размера bound числами от 1 до bound возведёнными в квадрат.
 * @param bound - размер массива.
 * @return rst - массив размера bound заполненный числами от 1 до bound возведёнными в квадрат.
 */
 	 public int[] calculate(int bound) {
-	// Объявление массива размера bound.	 
 		int[] rst = new int[bound];
-	// Заполнение массива через цикл элементами от 1 до bound возведенными в квадрат.
 		for (int i = 0; i < bound; i++) {
-			// Приведение к типу int, т.к. Math.pow выдает double.
 			rst[i] = (int) Math.pow(i + 1, 2);
 		}
 		return rst;

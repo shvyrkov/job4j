@@ -16,7 +16,6 @@ public class ArrayDuplicateTest {
 	 */
 	@Test
 	public void whenRemoveDuplicatesThenArrayWithoutDuplicate() {
-
 		ArrayDuplicate duplicate = new ArrayDuplicate();
 		String[] array = {"Привет", "Мир", "Привет", "Супер", "Мир", "Супер"};
 		String[] result = duplicate.remove(array);
@@ -28,7 +27,6 @@ public class ArrayDuplicateTest {
 	 */
 	@Test
 	public void whenRemoveDuplicatesThenArrayWithoutDuplicateInt() {
-
 		ArrayDuplicate duplicate = new ArrayDuplicate();
 		String[] array = {"1", "1", "2", "3", "1", "4", "1"};
 		String[] result = duplicate.remove(array);

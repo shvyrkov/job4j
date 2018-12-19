@@ -19,18 +19,14 @@ public class Board {
     public String paint(int width, int heigth) {
         StringBuilder screen = new StringBuilder();
         String ln = System.lineSeparator();
-        //Перебор строк.
         for (int i = 0; i < heigth; i++) {
-            //Перебор в строке.
-            // Сумма индексов всегда четное число => нужно проставлять X, иначе - пробел.
-            for (int j = 0; j < width; j++) {
+             for (int j = 0; j < width; j++) {
                 if ((i + j) % 2 == 0) {
                     screen.append("X");
                 } else {
                     screen.append(" ");
                 }
             }
-	        // добавляем перевод на новую строку.
             screen.append(ln);
         }
         return screen.toString();
