@@ -1,0 +1,6 @@
+/**
+ * Класс Patient - класс Пациента.
+ */
+public class Patient {
+    String name;
+}
