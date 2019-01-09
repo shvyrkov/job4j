@@ -51,13 +51,19 @@ public class Tracker {
      * Метод replace() заменяет ячейку в массиве this.items. 
 	 * Поиск ячейки в массиве происходит по id.  
      *
-	 * @param item - заявка. 
+	 * @param item - новая заявка. 
 	 * @param id - уникальный id заявки.
-     * @return - true, если удалось ли провести операцию.
+     * @return - true, если удалось провести операцию.
      */
 	public boolean replace(String id, Item item) {
 		boolean result = false;
-		
+		for (int index = 0; index < this.position; index++) {
+			if (this.items[index] != null && this.items[index].getId().equals(id)) {
+				this.items[index] = item;
+				result = true;
+				break;
+			}
+		}		
 		return result;
 	}
 	
@@ -71,7 +77,13 @@ public class Tracker {
      */
 	public boolean delete(String id) {
 		boolean result = false;
-		
+		for (int index = 0; index < this.position; index++) {
+			if (this.items[index] != null && this.items[index].getId().equals(id)) {
+				this.items[index] = null;//убрать?
+				System.arrayCopy(this.items, index, this.items, index, position - index);
+				result = true;
+				break;
+			}
 		return result;		
 	}
 	
@@ -81,13 +93,15 @@ public class Tracker {
      * @return - копия массива this.items без null элементов.
      */
 	public Item[] findAll() {
-		Item{} itemsCopy = new Item[100];
-		
-		return itemsCopy;
+		Item{} result = new Item[this.position];
+		for (int index = 0; index < this.position; index++) {
+			result[index] = this.items[index];
+		}
+		return result;
 	}
 	
 	/**
-     * Метод findByName() осуществляет поиск заявки по имени (name).
+     * Метод findByName() осуществляет поиск заявок по имени (name).
 	 * проверяет в цикле все элементы массива this.items, сравнивая name (используя метод getName класса Item) 
 	 * с аргументом метода String key. Элементы, у которых совпадает name, копирует в результирующий массив и возвращает его.
 	 *
@@ -95,19 +109,32 @@ public class Tracker {
      * @return - keyName[] - результирующий массив.
      */
 	public Item[] findByName(String key) {
-		
+		Item[] result = new Item;
+		int index = 0;
+		for (Item item = this.items) {
+			if(item != null && item.getName().equals(key)) {
+				result[index++] = item;				
+			}
+		}
+		return result;
+	}	
 	}
 	
 	/**
      * Метод findById() осуществляет поиск заявки по id.
-	 * проверяет в цикле все элементы массива this.items, сравнивая id с аргументом String id и возвращает найденный Item. 
-	 * Если Item не найден - возвращает null.
 	 *
 	 * @param id - уникальный id заявки. 
-     * @return - .
+     * @return - заявка с заданным id, если Item не найден - возвращает null.
      */
 	public Item findById(String id) {
-		
+		Item result = null;
+		for (Item item = this.items) {
+			if(item != null && item.getId().equals(id)) {
+				result = item;
+				break;
+			}
+		}
+		return result;
 	}
 }
 
