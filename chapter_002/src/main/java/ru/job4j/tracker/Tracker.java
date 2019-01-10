@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
-import java.util.*;//for Random
-//import java.lang.*;//for arraycopy ?
+import java.util.*; //for Random
 
 /**
  * Класс Tracker - хранилище для заявок.
@@ -80,8 +79,8 @@ public class Tracker {
         boolean result = false;
         for (int index = 0; index < this.position; index++) {
             if (this.items[index] != null && this.items[index].getId().equals(id)) {
-                this.items[index] = null;//убрать?
-                System.arraycopy(this.items, index, this.items, index, position - index);
+                this.items[index] = null; //убрать?
+                System.arraycopy(this.items, index, this.items, index - 1, position - index);
                 result = true;
                 break;
             }
