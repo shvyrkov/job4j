@@ -88,7 +88,7 @@ public class TrackerTest {
         tracker.add(itemtwo);
         // Добавляем заявку #3 в трекер.
         tracker.add(itemthree);
-         //Поиск заявки в трекере по имени.
+        //Поиск заявки в трекере по имени.
         assertThat(tracker.findByName("test2")[0].getName(), is("test2"));
         assertThat(tracker.findByName("test2")[1].getName(), is("test2"));
     }
