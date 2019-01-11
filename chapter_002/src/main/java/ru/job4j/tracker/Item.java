@@ -33,11 +33,9 @@ public class Item {
     }
 
     public Item(String name, String desc, long created) {
- //       this.id = id;
         this.name = name;
         this.desc = desc;
         this.created = created;
- //       this.comments = comments; //?
     }
 
     public void setId(String id) {
