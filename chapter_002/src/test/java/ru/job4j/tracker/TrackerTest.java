@@ -1,7 +1,9 @@
 package ru.job4j.tracker;
 
+import org.hamcrest.Matcher;
 import org.junit.Test;
 
+import static org.hamcrest.collection.IsArrayContainingInAnyOrder.arrayContainingInAnyOrder;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -64,10 +66,31 @@ public class TrackerTest {
         tracker.add(itemtwo);
         // Добавляем заявку #3 в трекер.
         tracker.add(itemthree);
+		
+        System.out.println("--------------------------------------------------");		
+		System.out.println("Position|  Id         |     Name         |     Description         ");
+        System.out.println("--------------------------------------------------");
+
+		for (int i = 0; i < tracker.findAll().length; i++) {
+			System.out.println(i + "       |  " + tracker.findAll()[i].getId() + "  |  " + tracker.findAll()[i].getName() + "  |  " + tracker.findAll()[i].getDesc());
+            System.out.println("-------------------------------------------------------");
+        }
+        System.out.println("--------------------------------------------------");
+		
         // Удаляем заявку #2.
         tracker.delete(itemtwo.getId());
         // Проверяем, что заявка #3 находится в ячейке 1.
         assertThat(tracker.findAll()[1], is(itemthree));
+		
+        System.out.println("--------------------------------------------------");		
+		System.out.println("  Id         |     Name         |     Description         ");
+        System.out.println("--------------------------------------------------");
+		for (int i = 0; i < tracker.findAll().length - 1; i++) {
+			System.out.println(i + "       |  " + tracker.findAll()[i].getId() + "  |  " + tracker.findAll()[i].getName() + "  |  " + tracker.findAll()[i].getDesc());
+            System.out.println("-------------------------------------------------------");
+        }
+        System.out.println("--------------------------------------------------");		
+
     }
 
     /**

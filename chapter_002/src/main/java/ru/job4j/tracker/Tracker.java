@@ -13,7 +13,7 @@ public class Tracker {
     /**
      * Массив items для хранение заявок.
      */
-    private final Item[] items = new Item[100];
+    private Item[] items = new Item[100];
 
     /**
      * Указатель ячейки position для новой заявки.
@@ -51,8 +51,8 @@ public class Tracker {
      * Метод replace() заменяет ячейку в массиве this.items.
      * Поиск ячейки в массиве происходит по id.
      *
+     * @param id   - уникальный id заявки, которую надо заменить.
      * @param item - новая заявка.
-     * @param id   - уникальный id заявки.
      * @return - true, если удалось провести операцию.
      */
     public boolean replace(String id, Item item) {
@@ -77,16 +77,56 @@ public class Tracker {
      */
     public boolean delete(String id) {
         boolean result = false;
+		/*
         for (int index = 0; index < this.position; index++) {
             if (this.items[index] != null && this.items[index].getId().equals(id)) {
-                this.items[index] = null; //убрать?
-                System.arraycopy(this.items, index, this.items, index - 1, position - index);
+               // this.items[index] = null; //убрать?
+                System.arraycopy(this.items, index, this.items, index - 1, this.items.length - index);
+				this.position--;
                 result = true;
                 break;
             }
         }
+		*/
+		//Временный массив для копирования.
+		Item[] tempItems = new Item[this.position - 1];
+		//Получение индекса ячейки, подлежащей удалению.
+		int index = 0;
+		for (int i = 0; i < this.position; i++) {
+            if (this.items[i] != null && this.items[i].getId().equals(id)) {
+                index = i;
+            }
+        }
+		if (index == 0) {
+			System.arraycopy(this.items, 1, this.items, 0, position);
+			//this.items = tempItems;
+		} else if (index == this.position) {
+			this.items[this.position] = null;
+			//не копируем последний элемент
+			//for (int i = 0; i < this.position - 1; i++) {
+			//	tempItems[i] = this.items[i];
+			//}
+			//this.items = tempItems;
+		} else {
+			System.arraycopy(this.items, index + 1, this.items, index, position);
+		}
+		/*
+			for (int i = 0; i < this.position - 1; i++) {
+				if (i > index) {
+					tempItems[i - 1] = this.items[i];
+				}
+				if (i == index) {
+					continue;
+				}
+				if (i < index) {
+					tempItems[i] = this.items[i];
+				}
+			}
+			this.items = tempItems;	
+		}		
+		*/
         return result;
-    }
+	}
 
     /**
      * Метод findAll() возвращает копию массива this.items без null элементов.
