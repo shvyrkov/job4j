@@ -1,9 +1,7 @@
 package ru.job4j.tracker;
 
-import org.hamcrest.Matcher;
 import org.junit.Test;
 
-import static org.hamcrest.collection.IsArrayContainingInAnyOrder.arrayContainingInAnyOrder;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -51,46 +49,83 @@ public class TrackerTest {
     /**
      * Тест для удаления заявки в трекере.
      */
+
     @Test
     public void whenDeleteItemThenShiftLeft() {
         Tracker tracker = new Tracker();
         // Создаем заявку #1.
-        Item itemone = new Item("test1", "testDescription1", 123L);
+        Item itemone = new Item("test1", "testDescription1", 1L);
         // Создаем заявку #2.
-        Item itemtwo = new Item("test2", "testDescription2", 1234L);
+        Item itemtwo = new Item("test2", "testDescription2", 12L);
         // Создаем заявку #3.
-        Item itemthree = new Item("test3", "testDescription3", 12345L);
+        Item itemthree = new Item("test3", "testDescription3", 123L);
+        // Создаем заявку #4.
+        Item itemfour = new Item("test4", "testDescription4", 1234L);
+        // Создаем заявку #5.
+        Item itemtfive = new Item("test5", "testDescription5", 12345L);
         // Добавляем заявку #1 в трекер.
         tracker.add(itemone);
         // Добавляем заявку #2 в трекер.
         tracker.add(itemtwo);
         // Добавляем заявку #3 в трекер.
         tracker.add(itemthree);
-		
-        System.out.println("--------------------------------------------------");		
-		System.out.println("Position|  Id         |     Name         |     Description         ");
-        System.out.println("--------------------------------------------------");
+        // Добавляем заявку #4 в трекер.
+        tracker.add(itemfour);
+        // Добавляем заявку #5 в трекер.
+        tracker.add(itemtfive);
 
-		for (int i = 0; i < tracker.findAll().length; i++) {
-			System.out.println(i + "       |  " + tracker.findAll()[i].getId() + "  |  " + tracker.findAll()[i].getName() + "  |  " + tracker.findAll()[i].getDesc());
+        //Вывод на печать всего массива. 
+        System.out.println("All massive.");
+        System.out.println("-------------------------------------------------------");
+        System.out.println("Position|  Id             |  Name    |     Description         ");
+        System.out.println("-------------------------------------------------------");
+
+        for (int i = 0; i < tracker.findAll().length; i++) {
+            System.out.println(i + "       |  " + tracker.findAll()[i].getId() + "  |  " + tracker.findAll()[i].getName() + "  |  " + tracker.findAll()[i].getDesc());
             System.out.println("-------------------------------------------------------");
         }
-        System.out.println("--------------------------------------------------");
-		
-        // Удаляем заявку #2.
-        tracker.delete(itemtwo.getId());
-        // Проверяем, что заявка #3 находится в ячейке 1.
-        assertThat(tracker.findAll()[1], is(itemthree));
-		
-        System.out.println("--------------------------------------------------");		
-		System.out.println("  Id         |     Name         |     Description         ");
-        System.out.println("--------------------------------------------------");
-		for (int i = 0; i < tracker.findAll().length - 1; i++) {
-			System.out.println(i + "       |  " + tracker.findAll()[i].getId() + "  |  " + tracker.findAll()[i].getName() + "  |  " + tracker.findAll()[i].getDesc());
+
+        //Удаляем заявку #1. 0-ячейка. 
+        System.out.println("Delete  item#1. 0-cell.");
+        tracker.delete(itemone.getId());
+        // Проверяем, что заявка #2 находится в ячейке 0.
+        assertThat(tracker.findAll()[0], is(itemtwo));
+
+        System.out.println("-------------------------------------------------------");
+        System.out.println("Position|    Id           |  Name   |     Description         ");
+        System.out.println("-------------------------------------------------------");
+        for (int i = 0; i < tracker.findAll().length; i++) {
+            System.out.println(i + "       |  " + tracker.findAll()[i].getId() + "  |  " + tracker.findAll()[i].getName() + "  |  " + tracker.findAll()[i].getDesc());
             System.out.println("-------------------------------------------------------");
         }
-        System.out.println("--------------------------------------------------");		
 
+        //Удаляем заявку #3. Середина массива. 
+        System.out.println("Delete  item#3. Middle-cell.");
+        tracker.delete(itemthree.getId());
+        // Проверяем, что заявка #4 находится в ячейке 1.
+        assertThat(tracker.findAll()[1], is(itemfour));
+
+        System.out.println("-------------------------------------------------------");
+        System.out.println("Position|    Id           |  Name   |     Description         ");
+        System.out.println("-------------------------------------------------------");
+        for (int i = 0; i < tracker.findAll().length; i++) {
+            System.out.println(i + "       |  " + tracker.findAll()[i].getId() + "  |  " + tracker.findAll()[i].getName() + "  |  " + tracker.findAll()[i].getDesc());
+            System.out.println("-------------------------------------------------------");
+        }
+
+        //Удаляем заявку #5. Последняя ячейка.
+        System.out.println("Delete  item#5. Last-cell.");
+        tracker.delete(itemtfive.getId());
+        // Проверяем, что во 2-й ячейке null.
+        //assertThat(tracker.findAll()[2], is(null));
+
+        System.out.println("-------------------------------------------------------");
+        System.out.println("Position|    Id           |  Name   |     Description         ");
+        System.out.println("-------------------------------------------------------");
+        for (int i = 0; i < tracker.findAll().length; i++) {
+            System.out.println(i + "       |  " + tracker.findAll()[i].getId() + "  |  " + tracker.findAll()[i].getName() + "  |  " + tracker.findAll()[i].getDesc());
+            System.out.println("-------------------------------------------------------");
+        }
     }
 
     /**

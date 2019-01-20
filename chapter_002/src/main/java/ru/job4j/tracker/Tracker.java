@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-import java.util.*; //for Random
+import java.util.*; 
 
 /**
  * Класс Tracker - хранилище для заявок.
@@ -77,56 +77,17 @@ public class Tracker {
      */
     public boolean delete(String id) {
         boolean result = false;
-		/*
-        for (int index = 0; index < this.position; index++) {
-            if (this.items[index] != null && this.items[index].getId().equals(id)) {
-               // this.items[index] = null; //убрать?
-                System.arraycopy(this.items, index, this.items, index - 1, this.items.length - index);
-				this.position--;
-                result = true;
-                break;
-            }
-        }
-		*/
-		//Временный массив для копирования.
-		Item[] tempItems = new Item[this.position - 1];
-		//Получение индекса ячейки, подлежащей удалению.
-		int index = 0;
-		for (int i = 0; i < this.position; i++) {
+        //Получение индекса ячейки, подлежащей удалению.
+        int index = 0;
+        for (int i = 0; i < this.position; i++) {
             if (this.items[i] != null && this.items[i].getId().equals(id)) {
                 index = i;
             }
         }
-		if (index == 0) {
-			System.arraycopy(this.items, 1, this.items, 0, position);
-			//this.items = tempItems;
-		} else if (index == this.position) {
-			this.items[this.position] = null;
-			//не копируем последний элемент
-			//for (int i = 0; i < this.position - 1; i++) {
-			//	tempItems[i] = this.items[i];
-			//}
-			//this.items = tempItems;
-		} else {
-			System.arraycopy(this.items, index + 1, this.items, index, position);
-		}
-		/*
-			for (int i = 0; i < this.position - 1; i++) {
-				if (i > index) {
-					tempItems[i - 1] = this.items[i];
-				}
-				if (i == index) {
-					continue;
-				}
-				if (i < index) {
-					tempItems[i] = this.items[i];
-				}
-			}
-			this.items = tempItems;	
-		}		
-		*/
+        System.arraycopy(this.items, index + 1, this.items, index, position - index + 1);
+        this.position--;
         return result;
-	}
+    }
 
     /**
      * Метод findAll() возвращает копию массива this.items без null элементов.
