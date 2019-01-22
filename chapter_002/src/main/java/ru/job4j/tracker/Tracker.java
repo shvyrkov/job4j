@@ -130,13 +130,10 @@ public class Tracker {
     public Item findById(String id) {
         Item result = null;
         for (Item item : this.items) {
-			//нужна проверка, что id - настоящий
             if (item != null && item.getId().equals(id)) {
                 result = item;
                 break;
-            } else {
-				
-			}
+            } 
         }
         return result;
     }
