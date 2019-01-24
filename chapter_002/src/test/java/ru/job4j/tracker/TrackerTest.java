@@ -74,7 +74,7 @@ public class TrackerTest {
         // Добавляем заявку #5 в трекер.
         tracker.add(itemtfive);
 
-        //Вывод на печать всего массива. 
+    /*Вывод на печать всего массива. 
         System.out.println("All massive.");
         System.out.println("-------------------------------------------------------");
         System.out.println("Position|  Id             |  Name    |     Description         ");
@@ -84,13 +84,13 @@ public class TrackerTest {
             System.out.println(i + "       |  " + tracker.findAll()[i].getId() + "  |  " + tracker.findAll()[i].getName() + "  |  " + tracker.findAll()[i].getDesc());
             System.out.println("-------------------------------------------------------");
         }
-
+	*/
         //Удаляем заявку #1. 0-ячейка. 
-        System.out.println("Delete  item#1. 0-cell.");
+        //System.out.println("Delete  item#1. 0-cell.");
         tracker.delete(itemone.getId());
         // Проверяем, что заявка #2 находится в ячейке 0.
         assertThat(tracker.findAll()[0], is(itemtwo));
-
+	/*
         System.out.println("-------------------------------------------------------");
         System.out.println("Position|    Id           |  Name   |     Description         ");
         System.out.println("-------------------------------------------------------");
@@ -98,13 +98,13 @@ public class TrackerTest {
             System.out.println(i + "       |  " + tracker.findAll()[i].getId() + "  |  " + tracker.findAll()[i].getName() + "  |  " + tracker.findAll()[i].getDesc());
             System.out.println("-------------------------------------------------------");
         }
-
+	*/
         //Удаляем заявку #3. Середина массива. 
-        System.out.println("Delete  item#3. Middle-cell.");
+        //System.out.println("Delete  item#3. Middle-cell.");
         tracker.delete(itemthree.getId());
         // Проверяем, что заявка #4 находится в ячейке 1.
         assertThat(tracker.findAll()[1], is(itemfour));
-
+	/*
         System.out.println("-------------------------------------------------------");
         System.out.println("Position|    Id           |  Name   |     Description         ");
         System.out.println("-------------------------------------------------------");
@@ -112,13 +112,13 @@ public class TrackerTest {
             System.out.println(i + "       |  " + tracker.findAll()[i].getId() + "  |  " + tracker.findAll()[i].getName() + "  |  " + tracker.findAll()[i].getDesc());
             System.out.println("-------------------------------------------------------");
         }
-
+	*/
         //Удаляем заявку #5. Последняя ячейка.
-        System.out.println("Delete  item#5. Last-cell.");
+        //System.out.println("Delete  item#5. Last-cell.");
         tracker.delete(itemtfive.getId());
         // Проверяем, что во 2-й ячейке null.
         //assertThat(tracker.findAll()[2], is(null));
-
+	/*
         System.out.println("-------------------------------------------------------");
         System.out.println("Position|    Id           |  Name   |     Description         ");
         System.out.println("-------------------------------------------------------");
@@ -126,6 +126,7 @@ public class TrackerTest {
             System.out.println(i + "       |  " + tracker.findAll()[i].getId() + "  |  " + tracker.findAll()[i].getName() + "  |  " + tracker.findAll()[i].getDesc());
             System.out.println("-------------------------------------------------------");
         }
+	*/
     }
 
     /**
