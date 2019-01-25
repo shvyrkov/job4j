@@ -61,4 +61,33 @@ public class StartUITest {
         new StartUI(input1, tracker).init();     //   создаём StartUI и вызываем метод init()
         assertThat(tracker.findAll()[1].getName(), is("test_name-4")); // проверяем, ячейка [1] в трекере содержит имя из ячейки [2], т.е.произошёл сдвиг влево.
     }
+
+    /**
+     * Тест для проверки всего массива заявок после удаления заявки в трекере ("3. Delete Item").
+     */
+    @Test
+    public void whenUserDeleteItemThenCompareWholeArray() {
+        Tracker tracker = new Tracker();     // создаём Tracker
+        Item item1 = tracker.add(new Item("test_name-1", "desc_1")); //Добавляем заявку 1 в ячейку [0]
+        Item item2 = tracker.add(new Item("test_name-2", "desc_2")); //Добавляем заявку 2 в ячейку [1]
+        Item item3 = tracker.add(new Item("test_name-3", "desc_3")); //Добавляем заявку 3 в ячейку [2]
+        Item item4 = tracker.add(new Item("test_name-4", "desc_4")); //Добавляем заявку 4 в ячейку [3]
+
+        Tracker expect = new Tracker();     // создаём Tracker для сравнения
+//        Item item1e = expect.add(new Item("test_name-1", "desc_1")); //Добавляем заявку 1 в ячейку [0]
+        Item item2e = expect.add(new Item("test_name-2", "desc_2")); //Добавляем заявку 2 в ячейку [1]
+        Item item3e = expect.add(new Item("test_name-3", "desc_3")); //Добавляем заявку 3 в ячейку [2]
+        Item item4e = expect.add(new Item("test_name-4", "desc_4")); //Добавляем заявку 4 в ячейку [3]
+
+        Input input00 = new StubInput(new String[]{"3", item1.getId(), "Y", "6"});   // Удаление item1 из ячейки [0].
+        new StartUI(input00, tracker).init();     //   создаём StartUI и вызываем метод init()
+
+        for (int i = 0; i < tracker.findAll().length; i++) {
+            assertThat(tracker.findAll()[i].getName(), is(expect.findAll()[i].getName())); // проверяем весь массив после удаления заявки
+        }
+
+//        Input input11 = new StubInput(new String[]{"3", item3.getId(), "Y", "6"});   // Удаление item3 из ячейки [1], где она оказалась после предыдущего удаления.
+//        new StartUI(input1, tracker).init();     //   создаём StartUI и вызываем метод init()
+//        assertThat(tracker.findAll()[1].getName(), is("test_name-4")); // проверяем, ячейка [1] в трекере содержит имя из ячейки [2], т.е.произошёл сдвиг влево.
+    }
 }

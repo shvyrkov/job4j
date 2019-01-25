@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-import java.util.*; 
+import java.util.*;
 
 /**
  * Класс Tracker - хранилище для заявок.
@@ -133,7 +133,7 @@ public class Tracker {
             if (item != null && item.getId().equals(id)) {
                 result = item;
                 break;
-            } 
+            }
         }
         return result;
     }
