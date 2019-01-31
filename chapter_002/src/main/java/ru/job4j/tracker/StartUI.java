@@ -208,7 +208,7 @@ public class StartUI {
                 System.out.println("--------------------------------------------------");
             }
         }
-        System.out.println("----------------- End of list -------------------");
+        System.out.println("----------------- End of list --------------------");
     }
 
     private void showMenu() {
