@@ -11,37 +11,37 @@ public class StartUI {
     /**
      * Константа меню для добавления новой заявки.
      */
-    private static final String ADD = "0";
+    private static final String ADD = "1";
 
     /**
      * Константа меню для отображения всех заявок.
      */
-    private static final String SHOWALL = "1";
+    private static final String SHOWALL = "2";
 
     /**
      * Константа меню для редактирования заявки.
      */
-    private static final String EDIT = "2";
+    private static final String EDIT = "3";
 
     /**
      * Константа меню для удаления заявки.
      */
-    private static final String DELETE = "3";
+    private static final String DELETE = "4";
 
     /**
      * Константа меню для поиска заявки по id.
      */
-    private static final String FINDBYID = "4";
+    private static final String FINDBYID = "5";
 
     /**
      * Константа меню для поиска заявки по имени.
      */
-    private static final String FINDBYNAME = "5";
+    private static final String FINDBYNAME = "6";
 
     /**
      * Константа для выхода из цикла.
      */
-    private static final String EXIT = "6";
+    private static final String EXIT = "7";
 
     /**
      * Получение данных от пользователя.
@@ -214,13 +214,13 @@ public class StartUI {
     private void showMenu() {
         System.out.println();
         System.out.println("       Menu.");
-        System.out.println("0. Add new Item");
-        System.out.println("1. List of all Items");
-        System.out.println("2. Edit Item");
-        System.out.println("3. Delete Item");
-        System.out.println("4. Find Item by Id");
-        System.out.println("5. Find Item by Name");
-        System.out.println("6. Exit");
+        System.out.println("1. Add new Item");
+        System.out.println("2. Show all Items");
+        System.out.println("3. Edit Item");
+        System.out.println("4. Delete Item");
+        System.out.println("5. Find Item by Id");
+        System.out.println("6. Find Items by Name");
+        System.out.println("7. Exit Program");
         System.out.println();
     }
 
