@@ -7,11 +7,21 @@ package ru.job4j.tracker;
  * @since 2019.02.03
 */
 public class FindAllItem implements UserAction {
+	
+	/**
+     * Метод возвращает ключ опции SHOWALL.
+     * @return ключ SHOWALL = 2
+     */
     @Override
     public int key() {
-        return SHOWALL;
+        return 2;
     }
-
+	
+	/**
+     * Переопределение основного метода execute на вывод на экран полного списка заявок.
+     * @param input объект типа Input
+     * @param tracker объект типа Tracker
+     */
     @Override
     public void execute(Input input, Tracker tracker) {
         System.out.println();
@@ -28,8 +38,11 @@ public class FindAllItem implements UserAction {
         System.out.println("----------------- End of list --------------------");
     }
 
+	/**Метод возвращает информацию о данном пункте меню.
+	*@return Строка меню: "2. Show all items."
+	*/
     @Override
     public String info() {
-        return "Show all items.";
+        return "2. Show all items.";
     }
 }

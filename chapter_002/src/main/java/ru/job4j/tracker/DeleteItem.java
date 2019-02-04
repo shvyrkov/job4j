@@ -2,30 +2,42 @@ package ru.job4j.tracker;
 
 /**
  * Реализация интерфейса UserAction для удаления заявки пользователем.
+ *
  * @author Shvyrkov Yuri (mailto: shvyrkov@yandex.ru)
  * @version 1.0
  * @since 2019.02.03
-*/
+ */
 public class DeleteItem implements UserAction {
+    /**
+     * Метод возвращает ключ опции DELETE.
+     *
+     * @return ключ DELETE = 4
+     */
     @Override
     public int key() {
-        return DELETE;
+        return 4;
     }
 
+    /**
+     * Переопределение основного execute метода на удаление заявки.
+     *
+     * @param input   объект типа Input
+     * @param tracker объект типа Tracker
+     */
     @Override
     public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Delete item --------------");
-		String id = input.ask("Please, enter item's id : ");
-		Item item = tracker.findById(id);
+        String id = input.ask("Please, enter item's id : ");
+        Item item = tracker.findById(id);
         if (item != null) {
-			System.out.println("--------------------------------------------------");
+            System.out.println("--------------------------------------------------");
             System.out.println("   Id           |   Name      |   Description     ");
             System.out.println("--------------------------------------------------");
             System.out.println(" " + item.getId() + "  |  " + item.getName() + "  |  " + item.getDesc());
             System.out.println("--------------------------------------------------");
-            String answer = this.input.ask("Delete Item? y/n : ");
+            String answer = input.ask("Delete Item? y/n : ");
             if (answer.equals("y")) {
-                this.tracker.delete(id);
+                tracker.delete(id);
                 System.out.println("--- Item with Id : '" + item.getId() + "' has been deleted. ---");
             }
         } else {
@@ -33,8 +45,13 @@ public class DeleteItem implements UserAction {
         }
     }
 
+    /**
+     * Метод возвращает информацию о данном пункте меню.
+     *
+     * @return Строка меню: "4. Delete item."
+     */
     @Override
     public String info() {
-        return "Delete item.";
+        return "4. Delete item.";
     }
 }

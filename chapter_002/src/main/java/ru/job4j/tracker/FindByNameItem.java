@@ -7,16 +7,26 @@ package ru.job4j.tracker;
  * @since 2019.02.03
 */
 public class FindByNameItem implements UserAction {
+	
+	/**
+     * Метод возвращает ключ опции FINDBYNAME.
+     * @return ключ FINDBYNAME = 6
+     */
     @Override
     public int key() {
-        return FINDBYNAME;
+        return 6;
     }
-
+	
+	/**
+     * Переопределение основного execute метода на вывод на экран списка заявок с указанным именем.
+     * @param input объект типа Input
+     * @param tracker объект типа Tracker
+     */
     @Override
     public void execute(Input input, Tracker tracker) {
         System.out.println();
-        String name = this.input.ask("Enter Name of Item : ");
-        if (this.tracker.findByName(name)[0] == null) {
+        String name = input.ask("Enter Name of Item : ");
+        if (tracker.findByName(name)[0] == null) {
             System.out.println("--- Item with Name: '" + name + "' is missing in Tracker. ---");
             return;
         }
@@ -24,7 +34,7 @@ public class FindByNameItem implements UserAction {
         System.out.println("--------------------------------------------------");
         System.out.println("   Id           |   Name      |   Description     ");
         System.out.println("--------------------------------------------------");
-        for (Item item : this.tracker.findByName(name)) {
+        for (Item item : tracker.findByName(name)) {
             if (item != null) {
                 System.out.println(" " + item.getId() + "  |  " + item.getName() + "  |  " + item.getDesc());
                 System.out.println("--------------------------------------------------");
@@ -32,9 +42,12 @@ public class FindByNameItem implements UserAction {
         }
         System.out.println("----------------- End of list --------------------");
     }
-
+	
+	/**Метод возвращает информацию о данном пункте меню.
+	*@return Строка меню: "6. Find items by name."
+	*/
     @Override
     public String info() {
-        return "Find items by name.";
+        return "6. Find items by name.";
     }
 }
