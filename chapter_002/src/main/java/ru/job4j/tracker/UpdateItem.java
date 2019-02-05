@@ -12,11 +12,11 @@ public class UpdateItem implements UserAction {
     /**
      * Метод возвращает ключ опции EDIT.
      *
-     * @return ключ EDIT = 3
+     * @return ключ EDIT = 2
      */
     @Override
     public int key() {
-        return 3;
+        return 2;
     }
 
     /**
@@ -48,10 +48,10 @@ public class UpdateItem implements UserAction {
     /**
      * Метод возвращает информацию о данном пункте меню.
      *
-     * @return Строка меню: "3. Edit Item."
+     * @return Строка меню: "2. Edit Item."
      */
     @Override
     public String info() {
-        return "3. Edit Item.";
+        return "2. Edit Item.";
     }
 }

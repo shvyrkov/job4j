@@ -1,33 +1,33 @@
 package ru.job4j.tracker;
 
 /**
- * Реализация интерфейса UserAction для удаления заявки пользователем.
+ * Реализация интерфейса UserAction для поиска заявки по Id.
  *
  * @author Shvyrkov Yuri (mailto: shvyrkov@yandex.ru)
  * @version 1.0
- * @since 2019.02.03
+ * @since 2019.02.05
  */
-public class DeleteItem implements UserAction {
+public class FindItemById implements UserAction {
     /**
-     * Метод возвращает ключ опции DELETE.
+     * Метод возвращает ключ опции FINDBYID.
      *
-     * @return ключ DELETE = 3
+     * @return ключ FINDBYID = 4
      */
     @Override
     public int key() {
-        return 3;
+        return 4;
     }
 
     /**
-     * Переопределение основного execute метода на удаление заявки.
+     * Переопределение основного метода execute для поиска заявки по Id.
      *
      * @param input   объект типа Input
      * @param tracker объект типа Tracker
      */
     @Override
     public void execute(Input input, Tracker tracker) {
-        System.out.println("------------ Delete item --------------");
-        String id = input.ask("Please, enter item's id : ");
+		System.out.println();
+        String id = input.ask("Enter Id of Item : ");
         Item item = tracker.findById(id);
         if (item != null) {
             System.out.println("--------------------------------------------------");
@@ -35,11 +35,6 @@ public class DeleteItem implements UserAction {
             System.out.println("--------------------------------------------------");
             System.out.println(" " + item.getId() + "  |  " + item.getName() + "  |  " + item.getDesc());
             System.out.println("--------------------------------------------------");
-            String answer = input.ask("Delete Item? y/n : ");
-            if (answer.equals("y")) {
-                tracker.delete(id);
-                System.out.println("--- Item with Id : '" + item.getId() + "' has been deleted. ---");
-            }
         } else {
             System.out.println("--- Item with Id: '" + id + "' is missing in Tracker. ---");
         }
@@ -48,10 +43,10 @@ public class DeleteItem implements UserAction {
     /**
      * Метод возвращает информацию о данном пункте меню.
      *
-     * @return Строка меню: "3. Delete item."
+     * @return Строка меню: "4. Find item by Id"
      */
     @Override
     public String info() {
-        return "3. Delete Item.";
+        return "4. Find Item by Id.";
     }
 }

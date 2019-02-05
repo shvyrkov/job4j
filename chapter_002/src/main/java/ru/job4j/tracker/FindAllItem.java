@@ -10,11 +10,11 @@ public class FindAllItem implements UserAction {
 	
 	/**
      * Метод возвращает ключ опции SHOWALL.
-     * @return ключ SHOWALL = 2
+     * @return ключ SHOWALL = 1
      */
     @Override
     public int key() {
-        return 2;
+        return 1;
     }
 	
 	/**
@@ -39,10 +39,10 @@ public class FindAllItem implements UserAction {
     }
 
 	/**Метод возвращает информацию о данном пункте меню.
-	*@return Строка меню: "2. Show all items."
+	*@return Строка меню: "1. Show all items."
 	*/
     @Override
     public String info() {
-        return "2. Show all items.";
+        return "1. Show all Items.";
     }
 }

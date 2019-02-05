@@ -10,11 +10,11 @@ public class FindByNameItem implements UserAction {
 	
 	/**
      * Метод возвращает ключ опции FINDBYNAME.
-     * @return ключ FINDBYNAME = 6
+     * @return ключ FINDBYNAME = 5
      */
     @Override
     public int key() {
-        return 6;
+        return 5;
     }
 	
 	/**
@@ -44,10 +44,10 @@ public class FindByNameItem implements UserAction {
     }
 	
 	/**Метод возвращает информацию о данном пункте меню.
-	*@return Строка меню: "6. Find items by name."
+	*@return Строка меню: "5. Find items by name."
 	*/
     @Override
     public String info() {
-        return "6. Find items by name.";
+        return "5. Find Items by Name.";
     }
 }

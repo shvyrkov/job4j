@@ -11,7 +11,7 @@ public class StartUI {
     /**
      * Константа меню для добавления новой заявки.
      */
-    final String ADD = "0";
+    private static final String ADD = "0";
 
     /**
      * Константа меню для отображения всех заявок.
@@ -67,9 +67,9 @@ public class StartUI {
     /**
      * Основой цикл программы.
      */
-	public void init() {
-		MenuTracker menu = new MenuTracker(this.input, this.tracker);
-        menu.fillActions();
+    public void init() {
+        MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        menu.fillActions(); // Заполнение массива действий пользователя , т.е. меню.
         do {
             menu.show(); // Вывод меню на экран.
             menu.select(Integer.valueOf(input.ask("Select:"))); // Вывод на экран "Select:" c преобразованием типа в Integer введенного пользователем значения.
@@ -100,12 +100,12 @@ public class StartUI {
         }
     }
 	*/
-	
+
     /**
      * Метод реализует добавление новой заявки в хранилище.
      */
     private void createItem() {
-		System.out.println();
+        System.out.println();
         System.out.println("------------ Add new Item -------------");
         String name = this.input.ask("Name :  ");
         String desc = this.input.ask("Description :  ");
@@ -118,7 +118,7 @@ public class StartUI {
      * Метод реализует вывод на экран всех заявок.
      */
     private void showAll() {
-		System.out.println();
+        System.out.println();
         System.out.println("--------------- List of all Items ----------------");
         System.out.println("--------------------------------------------------");
         System.out.println("   Id           |   Name      |   Description     ");
@@ -136,7 +136,7 @@ public class StartUI {
      * Метод реализует редактирование заявки.
      */
     private void editItem() {
-		System.out.println();
+        System.out.println();
         System.out.println("------------ Edit Item ---------------");
         String id = this.input.ask("Enter Item's Id : ");
         Item item = this.tracker.findById(id);
@@ -161,7 +161,7 @@ public class StartUI {
      * Метод реализует удаление заявки.
      */
     private void deleteItem() {
-		System.out.println();
+        System.out.println();
         System.out.println("--------------- Delete Item ---------------");
         String id = this.input.ask("Enter Id of Item : ");
         Item item = this.tracker.findById(id);
@@ -185,7 +185,7 @@ public class StartUI {
      * Метод реализует поиск заявки по Id.
      */
     private void findId() {
-		System.out.println();
+        System.out.println();
         String id = this.input.ask("Enter Id of Item : ");
         Item item = this.tracker.findById(id);
         if (item != null) {
@@ -203,7 +203,7 @@ public class StartUI {
      * Метод реализует поиск заявки по имени.
      */
     private void findName() {
-		System.out.println();
+        System.out.println();
         String name = this.input.ask("Enter Name of Item : ");
         if (this.tracker.findByName(name)[0] == null) {
             System.out.println("--- Item with Name: '" + name + "' is missing in Tracker. ---");
@@ -223,7 +223,7 @@ public class StartUI {
     }
 
     private void showMenu() {
-		System.out.println();
+        System.out.println();
         System.out.println("       Menu.");
         System.out.println("0. Add new Item");
         System.out.println("1. List of all Items");
@@ -232,7 +232,7 @@ public class StartUI {
         System.out.println("4. Find Item by Id");
         System.out.println("5. Find Item by Name");
         System.out.println("6. Exit");
-		System.out.println();
+        System.out.println();
     }
 
     /**

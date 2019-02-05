@@ -1,12 +1,14 @@
 package ru.job4j.tracker;
 
 import java.util.*;
+
 /**
  * Класс MenuTracker - для работы пользователя с меню.
+ *
  * @author Shvyrkov Yuri (mailto: shvyrkov@yandex.ru)
  * @version 1.0
  * @since 2019.02.03
-*/
+ */
 public class MenuTracker {
     /**
      * @param input - хранит ссылку на объект типа Input.
@@ -17,7 +19,7 @@ public class MenuTracker {
      */
     private Tracker tracker;
     /**
-     * Объявление списочного массива actions типа UserAction
+     * Объявление списочного массива actions типа UserAction для действий пользователя.
      *
      * @param хранит ссылку на массив типа UserAction. ??
      */
@@ -46,14 +48,15 @@ public class MenuTracker {
     /**
      * Метод заполняет массив содержимого меню.
      */
-     public void fillActions() {
-        this.actions.add(new AddItem(0, "Add program")); // Метод .add из ArrayList - добавление эл-та в массив.
-        this.actions.add(new FindAllItem(1, "Show all items")); // 1, - индекс эл-та в массиве.
-        this.actions.add(new UpdateItem(2, "Edit item")); // "Edit item" - содержимое эл-та.
-        this.actions.add(new DeleteItem(3, "Delete item"));
-//        this.actions.add(new FindItemById(4, "Find item by Id"));
-        this.actions.add(new FindByNameItem(5, "Find items by name"));
-//        this.actions.add(new ExitProgram(6, "Exit Program"));
+    public void fillActions() {
+        AddItem addItem = new AddItem();
+        this.actions.add(0, new AddItem()); // Метод .add из ArrayList - добавление эл-та в массив.
+        this.actions.add(1, new FindAllItem()); // 1, - индекс эл-та в массиве.
+        this.actions.add(2, new UpdateItem()); // Содержимое эл-та - объект типа UpdateItem().
+        this.actions.add(3, new DeleteItem());
+        this.actions.add(4, new FindItemById());
+        this.actions.add(5, new FindByNameItem());
+        this.actions.add(6, new ExitProgram());
     }
 
     /**

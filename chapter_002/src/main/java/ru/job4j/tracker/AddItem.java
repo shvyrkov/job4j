@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 
+import java.lang.*;
 /**
  * Реализация интерфейса UserAction для добавления новой заявки пользователем.
  *
@@ -43,6 +44,6 @@ public class AddItem implements UserAction {
      */
     @Override
     public String info() {
-        return "1. Add new Item.";
+        return "0. Add new Item.";
     }
 }
