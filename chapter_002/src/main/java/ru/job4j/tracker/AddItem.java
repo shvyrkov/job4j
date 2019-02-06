@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 import java.lang.*;
+
 /**
  * Реализация интерфейса UserAction для добавления новой заявки пользователем.
  *
@@ -9,14 +10,20 @@ import java.lang.*;
  * @since 2019.02.03
  */
 public class AddItem implements UserAction {
+
+    /**
+     * Константа меню для добавления новой заявки.
+     */
+    private static final String ADD = "0";
+
     /**
      * Метод возвращает ключ опции ADD.
      *
-     * @return ключ ADD = 1
+     * @return ключ ADD = 0
      */
     @Override
     public int key() {
-        return 1;
+        return Integer.valueOf(ADD);
     }
 
     /**
@@ -44,6 +51,6 @@ public class AddItem implements UserAction {
      */
     @Override
     public String info() {
-        return "0. Add new Item.";
+        return ADD + ". Add new Item.";
     }
 }

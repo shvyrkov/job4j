@@ -10,13 +10,18 @@ package ru.job4j.tracker;
 public class UpdateItem implements UserAction {
 
     /**
+     * Константа меню для редактирования заявки.
+     */
+    private static final String EDIT = "2";
+
+    /**
      * Метод возвращает ключ опции EDIT.
      *
      * @return ключ EDIT = 2
      */
     @Override
     public int key() {
-        return 2;
+        return Integer.valueOf(EDIT);
     }
 
     /**
@@ -52,6 +57,6 @@ public class UpdateItem implements UserAction {
      */
     @Override
     public String info() {
-        return "2. Edit Item.";
+        return EDIT + ". Edit Item.";
     }
 }

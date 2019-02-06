@@ -9,13 +9,18 @@ package ru.job4j.tracker;
  */
 public class DeleteItem implements UserAction {
     /**
+     * Константа меню для удаления заявки.
+     */
+    private static final String DELETE = "3";
+
+    /**
      * Метод возвращает ключ опции DELETE.
      *
      * @return ключ DELETE = 3
      */
     @Override
     public int key() {
-        return 3;
+        return Integer.valueOf(DELETE);
     }
 
     /**
@@ -52,6 +57,6 @@ public class DeleteItem implements UserAction {
      */
     @Override
     public String info() {
-        return "3. Delete Item.";
+        return DELETE + ". Delete Item.";
     }
 }

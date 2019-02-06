@@ -9,13 +9,18 @@ package ru.job4j.tracker;
  */
 public class ExitProgram implements UserAction {
     /**
+     * Константа для выхода из цикла.
+     */
+    private static final String EXIT = "6";
+
+    /**
      * Метод возвращает ключ опции EXIT.
      *
      * @return ключ EXIT = 6
      */
     @Override
     public int key() {
-        return 6;
+        return Integer.valueOf(EXIT);
     }
 
     /**
@@ -26,9 +31,9 @@ public class ExitProgram implements UserAction {
      */
     @Override
     public void execute(Input input, Tracker tracker) {
-		System.out.println();
-        String id = input.ask("Exit Program? y/n : ");
-        
+        System.out.println();
+//        String id = input.ask("Exit Program? y/n : ");
+
     }
 
     /**
@@ -38,6 +43,6 @@ public class ExitProgram implements UserAction {
      */
     @Override
     public String info() {
-        return "6. Exit Program.";
+        return EXIT + ". Exit Program.";
     }
 }

@@ -8,6 +8,12 @@ package ru.job4j.tracker;
  * @since 2019.02.05
  */
 public class FindItemById implements UserAction {
+
+    /**
+     * Константа меню для поиска заявки по id.
+     */
+    private static final String FINDBYID = "4";
+
     /**
      * Метод возвращает ключ опции FINDBYID.
      *
@@ -15,7 +21,7 @@ public class FindItemById implements UserAction {
      */
     @Override
     public int key() {
-        return 4;
+        return Integer.valueOf(FINDBYID);
     }
 
     /**
@@ -26,7 +32,7 @@ public class FindItemById implements UserAction {
      */
     @Override
     public void execute(Input input, Tracker tracker) {
-		System.out.println();
+        System.out.println();
         String id = input.ask("Enter Id of Item : ");
         Item item = tracker.findById(id);
         if (item != null) {
@@ -47,6 +53,6 @@ public class FindItemById implements UserAction {
      */
     @Override
     public String info() {
-        return "4. Find Item by Id.";
+        return FINDBYID + ". Find Item by Id.";
     }
 }

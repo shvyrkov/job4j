@@ -65,7 +65,7 @@ public class MenuTracker {
      * @param key ключ операции
      */
     public void select(int key) { // Обращение к эл-ту с индексом key и выполнение соотвествующего execute.
-        this.actions.get(key).execute(this.input, this.tracker);
+        this.actions.get(key).execute(this.input, this.tracker); // Метод .get из ArrayList извлекает эл-т из ячейки с номером key.
     }
 
     /**

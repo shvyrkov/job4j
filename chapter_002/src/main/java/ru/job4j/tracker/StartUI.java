@@ -72,11 +72,11 @@ public class StartUI {
         menu.fillActions(); // Заполнение массива действий пользователя , т.е. меню.
         do {
             menu.show(); // Вывод меню на экран.
-            menu.select(Integer.valueOf(input.ask("Select:"))); // Вывод на экран "Select:" c преобразованием типа в Integer введенного пользователем значения.
+            menu.select(Integer.valueOf(input.ask("Select:"))); // Вывод на экран "Select:" c преобразованием типа в Integer введенного пользователем значения типа String.
         }
         while (!"y".equals(this.input.ask("Exit?(y): "))); // Вывод на экран "Exit?(y): ", если "y" - выход из программы.
     }
-	/*
+/*
     public void init() {
         boolean exit = false;
         while (!exit) {
@@ -99,7 +99,7 @@ public class StartUI {
             }
         }
     }
-	*/
+*/
 
     /**
      * Метод реализует добавление новой заявки в хранилище.

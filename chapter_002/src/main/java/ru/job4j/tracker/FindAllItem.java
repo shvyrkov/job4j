@@ -2,24 +2,31 @@ package ru.job4j.tracker;
 
 /**
  * Реализация интерфейса UserAction для вывода на экран полного списка заявок пользователем.
+ *
  * @author Shvyrkov Yuri (mailto: shvyrkov@yandex.ru)
  * @version 1.0
  * @since 2019.02.03
-*/
+ */
 public class FindAllItem implements UserAction {
-	
-	/**
+    /**
+     * Константа меню для отображения всех заявок.
+     */
+    private static final String SHOWALL = "1";
+
+    /**
      * Метод возвращает ключ опции SHOWALL.
+     *
      * @return ключ SHOWALL = 1
      */
     @Override
     public int key() {
-        return 1;
+        return Integer.valueOf(SHOWALL);
     }
-	
-	/**
+
+    /**
      * Переопределение основного метода execute на вывод на экран полного списка заявок.
-     * @param input объект типа Input
+     *
+     * @param input   объект типа Input
      * @param tracker объект типа Tracker
      */
     @Override
@@ -38,11 +45,13 @@ public class FindAllItem implements UserAction {
         System.out.println("----------------- End of list --------------------");
     }
 
-	/**Метод возвращает информацию о данном пункте меню.
-	*@return Строка меню: "1. Show all items."
-	*/
+    /**
+     * Метод возвращает информацию о данном пункте меню.
+     *
+     * @return Строка меню: "1. Show all items."
+     */
     @Override
     public String info() {
-        return "1. Show all Items.";
+        return SHOWALL + ". Show all Items.";
     }
 }
