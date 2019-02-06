@@ -83,7 +83,7 @@ public class StartUITest {
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
         Tracker tracker = new Tracker();     // создаём Tracker
-        Input input = new StubInput(new String[]{"0", "test name", "desc", "y"});   //создаём StubInput с последовательностью действий для добавления заявки.
+        Input input = new StubInput(new String[]{"0", "test name", "desc", "6", "y"});   //создаём StubInput с последовательностью действий для добавления заявки.
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
         assertThat(tracker.findAll()[0].getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
     }
@@ -98,7 +98,7 @@ public class StartUITest {
         //Напрямую добавляем заявку
         Item itemEdit = tracker.add(new Item("test name", "desc"));
         //создаём StubInput с последовательностью действий(производим замену заявки)
-        Input input = new StubInput(new String[]{"2", itemEdit.getId(), "test replace", "заменили заявку", "y"});
+        Input input = new StubInput(new String[]{"2", itemEdit.getId(), "test replace", "заменили заявку", "6", "y"});
         // создаём StartUI и вызываем метод init()
         new StartUI(input, tracker).init();
         // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
@@ -116,11 +116,11 @@ public class StartUITest {
         Item item3 = tracker.add(new Item("test_name-3", "desc_3")); //Добавляем заявку 3 в ячейку [2]
         Item item4 = tracker.add(new Item("test_name-4", "desc_4")); //Добавляем заявку 4 в ячейку [3]
 
-        Input input0 = new StubInput(new String[]{"3", item1.getId(), "y", "y"});   // Удаление item1 из ячейки [0].
+        Input input0 = new StubInput(new String[]{"3", item1.getId(), "y", "6", "y"});   // Удаление item1 из ячейки [0].
         new StartUI(input0, tracker).init();     //   создаём StartUI и вызываем метод init()
         assertThat(tracker.findAll()[0].getName(), is("test_name-2")); // проверяем, ячейка [0] в трекере содержит имя из ячейки [1], т.е.произошёл сдвиг влево.
 
-        Input input1 = new StubInput(new String[]{"3", item3.getId(), "y", "y"});   // Удаление item3 из ячейки [1], где она оказалась после предыдущего удаления.
+        Input input1 = new StubInput(new String[]{"3", item3.getId(), "y", "6", "y"});   // Удаление item3 из ячейки [1], где она оказалась после предыдущего удаления.
         new StartUI(input1, tracker).init();     //   создаём StartUI и вызываем метод init()
         assertThat(tracker.findAll()[1].getName(), is("test_name-4")); // проверяем, ячейка [1] в трекере содержит имя из ячейки [2], т.е.произошёл сдвиг влево.
     }
@@ -142,7 +142,7 @@ public class StartUITest {
         Item item3e1 = expect1.add(new Item("test_name-3", "desc_3")); //Добавляем заявку 3 в ячейку [2]
         Item item4e1 = expect1.add(new Item("test_name-4", "desc_4")); //Добавляем заявку 4 в ячейку [3]
 
-        Input input00 = new StubInput(new String[]{"3", item1.getId(), "y", "y"});   // Удаление item1 из ячейки [0].
+        Input input00 = new StubInput(new String[]{"3", item1.getId(), "y", "6", "y"});   // Удаление item1 из ячейки [0].
         new StartUI(input00, tracker).init();     //   создаём StartUI и вызываем метод init()
         for (int i = 0; i < tracker.findAll().length; i++) {
             assertThat(tracker.findAll()[i].getName(), is(expect1.findAll()[i].getName())); // проверяем весь массив после удаления заявки
@@ -154,7 +154,7 @@ public class StartUITest {
 //        Item item3e2 = expect2.add(new Item("test_name-3", "desc_3")); //Добавляем заявку 3 в ячейку [2]
         Item item4e2 = expect2.add(new Item("test_name-4", "desc_4")); //Добавляем заявку 4 в ячейку [3]
 
-        Input input11 = new StubInput(new String[]{"3", item3.getId(), "y", "y"});   // Удаление item3 из середины массива.
+        Input input11 = new StubInput(new String[]{"3", item3.getId(), "y", "6", "y"});   // Удаление item3 из середины массива.
         new StartUI(input11, tracker).init();     //   создаём StartUI и вызываем метод init()
         for (int i = 0; i < tracker.findAll().length; i++) {
             assertThat(tracker.findAll()[i].getName(), is(expect2.findAll()[i].getName())); // проверяем весь массив после удаления заявки
@@ -165,7 +165,7 @@ public class StartUITest {
 //        Item item3e3 = expect3.add(new Item("test_name-3", "desc_3")); //Добавляем заявку 3 в ячейку [2]
 //        Item item4e3 = expect3.add(new Item("test_name-4", "desc_4")); //Добавляем заявку 4 в ячейку [3]
 
-        Input input22 = new StubInput(new String[]{"3", item4.getId(), "y", "y"});   // Удаление item4 из последней ячейки массива
+        Input input22 = new StubInput(new String[]{"3", item4.getId(), "y", "6", "y"});   // Удаление item4 из последней ячейки массива
         new StartUI(input22, tracker).init();     //   создаём StartUI и вызываем метод init()
         for (int i = 0; i < tracker.findAll().length; i++) {
             assertThat(tracker.findAll()[i].getName(), is(expect3.findAll()[i].getName())); // проверяем весь массив после удаления заявки
@@ -183,7 +183,7 @@ public class StartUITest {
         Item item3a = trackerList.add(new Item("test_name-3", "desc_3")); //Добавляем заявку 3 в ячейку [2]
         Item item4a = trackerList.add(new Item("test_name-4", "desc_4")); //Добавляем заявку 4 в ячейку [3]
 
-        Input input = new StubInput(new String[]{"1", "y"});   // Вывод списка.
+        Input input = new StubInput(new String[]{"1", "6", "y"});   // Вывод списка.
         new StartUI(input, trackerList).init();     //   создаём StartUI и вызываем метод init()
 
         assertThat(
@@ -206,7 +206,8 @@ public class StartUITest {
                                 .append(" " + trackerList.findAll()[3].getId() + "  |  test_name-4  |  desc_4")
                                 .append(interline)
                                 .append(footer)
-//                                .append(menu)
+                                .append(menu)
+                                .append(System.lineSeparator())
                                 .toString()
                 )
         );
@@ -223,7 +224,7 @@ public class StartUITest {
         Item item3n = trackerName.add(new Item("test_name-3", "desc_3")); //Добавляем заявку 3 в ячейку [2]
         Item item4n = trackerName.add(new Item("test_name-2", "desc_4")); //Добавляем заявку 4 в ячейку [3]
 
-        Input inputId = new StubInput(new String[]{"5", "test_name-2", "y"}); // Поиск по имени "test_name-2"
+        Input inputId = new StubInput(new String[]{"5", "test_name-2", "6", "y"}); // Поиск по имени "test_name-2"
         new StartUI(inputId, trackerName).init();     //   создаём StartUI и вызываем метод init()
 
         assertThat(
@@ -240,7 +241,8 @@ public class StartUITest {
                                 .append(" " + trackerName.findByName("test_name-2")[1].getId() + "  |  test_name-2  |  desc_4")
                                 .append(interline)
                                 .append(footer)
-                                //                               .append(menu)
+                                .append(menu)
+                                .append(System.lineSeparator())
                                 .toString()
                 )
         );

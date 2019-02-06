@@ -9,9 +9,21 @@ package ru.job4j.tracker;
  */
 public class ExitProgram implements UserAction {
     /**
+     * Переменная для выхода из цикла.
+     */
+    private final StartUI ui; // Определение ссылки на объект ui для вызова метода stop() для выхода из программы.
+
+    /**
      * Константа для выхода из цикла.
      */
     private static final String EXIT = "6";
+
+    /**
+     * Конструктор.
+     */
+    public ExitProgram(StartUI ui) {
+        this.ui = ui; // Инициализация объекта  ui.
+    }
 
     /**
      * Метод возвращает ключ опции EXIT.
@@ -32,8 +44,10 @@ public class ExitProgram implements UserAction {
     @Override
     public void execute(Input input, Tracker tracker) {
         System.out.println();
-//        String id = input.ask("Exit Program? y/n : ");
-
+        String id = input.ask("Exit Program? y/n : ");
+        if (id.equals("y")) {
+            this.ui.stop(); // Вызов метода stop() для выхода из программы.
+        }
     }
 
     /**

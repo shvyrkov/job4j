@@ -47,16 +47,16 @@ public class MenuTracker {
 
     /**
      * Метод заполняет массив содержимого меню.
+     * @param ui - объект типа StartUI для  передачи в ExitProgram
      */
-    public void fillActions() {
-        AddItem addItem = new AddItem();
+    public void fillActions(StartUI ui) {
         this.actions.add(0, new AddItem()); // Метод .add из ArrayList - добавление эл-та в массив.
         this.actions.add(1, new FindAllItem()); // 1, - индекс эл-та в массиве.
         this.actions.add(2, new UpdateItem()); // Содержимое эл-та - объект типа UpdateItem().
         this.actions.add(3, new DeleteItem());
         this.actions.add(4, new FindItemById());
         this.actions.add(5, new FindByNameItem());
-        this.actions.add(6, new ExitProgram());
+        this.actions.add(6, new ExitProgram(ui));
     }
 
     /**
