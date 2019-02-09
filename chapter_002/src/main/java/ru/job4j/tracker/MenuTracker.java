@@ -10,14 +10,17 @@ import java.util.*;
  * @since 2019.02.03
  */
 public class MenuTracker {
+
     /**
      * @param input - хранит ссылку на объект типа Input.
      */
+
     private Input input;
     /**
      * @param tracker - хранит ссылку на объект типа Tracker.
      */
     private Tracker tracker;
+
     /**
      * Объявление списочного массива actions типа UserAction для действий пользователя.
      *
@@ -47,6 +50,7 @@ public class MenuTracker {
 
     /**
      * Метод заполняет массив содержимого меню.
+     *
      * @param ui - объект типа StartUI для  передачи в ExitProgram
      */
     public void fillActions(StartUI ui) {
@@ -77,5 +81,20 @@ public class MenuTracker {
                 System.out.println(action.info());
             }
         }
+    }
+
+    /**
+     * Метод для получения диапазона допустимых значений для ввода пользователем.
+     *
+     * @return - range - массив допустимых значений для ввода пользователем.
+     */
+    public int[] range() {
+        int[] range = new int[this.actions.size()];
+        for (int i = 0; i < range.length; i++) {
+            if (this.actions.get(i) != null) {
+                range[i] = i;
+            }
+        }
+        return range;
     }
 }

@@ -1,7 +1,5 @@
 package ru.job4j.tracker;
 
-import java.util.*;
-
 /**
  * Класс StubInput - программа реализации методов интерфейса Input для имитации общения с пользователем.
  *
@@ -10,6 +8,7 @@ import java.util.*;
  * @since 2019.01.24
  */
 public class StubInput implements Input {
+
     /**
      * Это поле содержит последовательность ответов пользователя.
      * Например, если пользователь хочет выбрать добавление новой заявки ему нужно ввести:
@@ -41,5 +40,9 @@ public class StubInput implements Input {
     @Override
     public String ask(String question) {
         return this.value[this.position++];
+    }
+
+    public int ask(String question, int[] range) {
+        return -1;
     }
 }
