@@ -60,10 +60,9 @@ public class StubInput implements Input {
                 break;
             }
         }
-        if (exist) {
-            return key;
-        } else {
+        if (!exist) {
             throw new MenuOutException("Out of menu rahge."); // Генерация исключения при выходе за границы массива.
         }
+        return key;
     }
 }
