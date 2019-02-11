@@ -13,9 +13,10 @@ public class StubInput implements Input {
      * Это поле содержит последовательность ответов пользователя.
      * Например, если пользователь хочет выбрать добавление новой заявки ему нужно ввести:
      * 0 - выбор пункта меня "добавить новую заявку".
-     * name - имя заявки
-     * desc - описание заявки
-     * y - выйти из трекера (6).
+     * name - имя заявки.
+     * desc - описание заявки.
+     * 6 - выйти из трекера.
+     * y - подтверждение выхода.
      */
     private final String[] value;
 
@@ -25,6 +26,12 @@ public class StubInput implements Input {
      */
     private int position;
 
+    /**
+     * Конструктор
+     *
+     * @param value - последовательность ответов пользователя.
+     * @param -     диапазон допустимых значений для ввода пользователем.
+     */
     public StubInput(final String[] value) {
         this.value = value;
     }
@@ -43,6 +50,20 @@ public class StubInput implements Input {
     }
 
     public int ask(String question, int[] range) {
-        return -1;
+
+        int key = Integer.valueOf(this.ask(question)); // Использует 1-й метод ask для ввода данных.
+        // Автогенерация (by JVM) исключения NFE при вводе данных не типа int.
+        boolean exist = false;
+        for (int value : range) { // Сравнение введенного значения с заданным диапазоном.
+            if (value == key) {
+                exist = true;
+                break;
+            }
+        }
+        if (exist) {
+            return key;
+        } else {
+            throw new MenuOutException("Out of menu rahge."); // Генерация исключения при выходе за границы массива.
+        }
     }
 }

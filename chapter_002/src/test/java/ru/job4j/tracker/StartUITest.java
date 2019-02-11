@@ -18,11 +18,10 @@ import static org.junit.Assert.assertThat;
  * @since 2019.01.24
  */
 public class StartUITest {
-    // Константа Menu
+    /**
+     * Константа Menu
+     */
     private final StringBuilder menu = new StringBuilder()
-//            .append(System.lineSeparator())
-//            .append("       Menu.")
-//            .append(System.lineSeparator())
             .append("0. Add new Item.")
             .append(System.lineSeparator())
             .append("1. Show all Items.")
@@ -37,9 +36,10 @@ public class StartUITest {
             .append(System.lineSeparator())
             .append("6. Exit Program.")
             .append(System.lineSeparator());
-//            .append(System.lineSeparator());
 
-    // Константа Заголовка.
+    /**
+     * Константа Заголовка.
+     */
     private final StringBuilder header = new StringBuilder()
             .append(System.lineSeparator())
             .append("--------------------------------------------------")
@@ -49,20 +49,29 @@ public class StartUITest {
             .append("--------------------------------------------------")
             .append(System.lineSeparator());
 
-    // Константа для разделительной линии в таблице.
+    /**
+     * Константа для разделительной линии в таблице.
+     */
     private final StringBuilder interline = new StringBuilder()
             .append(System.lineSeparator())
             .append("--------------------------------------------------");
 
-    // Константа для нижнего колонтитула.
+    /*
+     * Константа для нижнего колонтитула.
+     */
     private final StringBuilder footer = new StringBuilder()
             .append(System.lineSeparator())
             .append("----------------- End of list --------------------")
             .append(System.lineSeparator());
 
-    // поле содержит дефолтный (стандартный) вывод в консоль.
+    /**
+     * Поле содержит дефолтный (стандартный) вывод в консоль.
+     */
     private final PrintStream stdout = System.out;
-    // буфер для результата.
+
+    /**
+     * Буфер для результата.
+     */
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
     @Before // Выполняется перед каждым тестом.
