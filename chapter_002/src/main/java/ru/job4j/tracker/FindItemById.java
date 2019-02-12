@@ -7,22 +7,17 @@ package ru.job4j.tracker;
  * @version 1.0
  * @since 2019.02.05
  */
-public class FindItemById implements UserAction {
+public class FindItemById extends BaseAction {
 
     /**
-     * Константа меню для поиска заявки по id.
-     */
-    private static final String FINDBYID = "4";
-
-    /**
-     * Метод возвращает ключ опции FINDBYID.
+     * Конструтор инициализирующий поля.
      *
-     * @return ключ FINDBYID = 4
+     * @param key - номер меню.
+     * @param name - названия номера меню.
      */
-    @Override
-    public int key() {
-        return Integer.valueOf(FINDBYID);
-    }
+	public FindItemById(int key, String name) {
+        super(key, name);
+	}
 
     /**
      * Переопределение основного метода execute для поиска заявки по Id.
@@ -44,15 +39,5 @@ public class FindItemById implements UserAction {
         } else {
             System.out.println("--- Item with Id: '" + id + "' is missing in Tracker. ---");
         }
-    }
-
-    /**
-     * Метод возвращает информацию о данном пункте меню.
-     *
-     * @return Строка меню: "4. Find item by Id"
-     */
-    @Override
-    public String info() {
-        return FINDBYID + ". Find Item by Id.";
     }
 }

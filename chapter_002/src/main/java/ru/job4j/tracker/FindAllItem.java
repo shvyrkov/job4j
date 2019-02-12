@@ -7,21 +7,18 @@ package ru.job4j.tracker;
  * @version 1.0
  * @since 2019.02.03
  */
-public class FindAllItem implements UserAction {
+public class FindAllItem extends BaseAction {
+	
     /**
-     * Константа меню для отображения всех заявок.
-     */
-    private static final String SHOWALL = "1";
-
-    /**
-     * Метод возвращает ключ опции SHOWALL.
+     * Конструтор инициализирующий поля.
      *
-     * @return ключ SHOWALL = 1
+     * @param key - номер меню.
+     * @param name - названия номера меню.
      */
-    @Override
-    public int key() {
-        return Integer.valueOf(SHOWALL);
-    }
+	public FindAllItem(int key, String name) {
+        super(key, name);
+	}
+
 
     /**
      * Переопределение основного метода execute на вывод на экран полного списка заявок.
@@ -43,15 +40,5 @@ public class FindAllItem implements UserAction {
             }
         }
         System.out.println("----------------- End of list --------------------");
-    }
-
-    /**
-     * Метод возвращает информацию о данном пункте меню.
-     *
-     * @return Строка меню: "1. Show all items."
-     */
-    @Override
-    public String info() {
-        return SHOWALL + ". Show all Items.";
     }
 }

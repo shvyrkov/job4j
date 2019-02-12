@@ -7,22 +7,18 @@ package ru.job4j.tracker;
  * @version 1.0
  * @since 2019.02.03
  */
-public class FindByNameItem implements UserAction {
+public class FindByNameItem extends BaseAction {
 
     /**
-     * Константа меню для поиска заявки по имени.
-     */
-    private static final String FINDBYNAME = "5";
-
-    /**
-     * Метод возвращает ключ опции FINDBYNAME.
+     * Конструтор инициализирующий поля.
      *
-     * @return ключ FINDBYNAME = 5
+     * @param key - номер меню.
+     * @param name - названия номера меню.
      */
-    @Override
-    public int key() {
-        return Integer.valueOf(FINDBYNAME);
-    }
+	public FindByNameItem(int key, String name) {
+        super(key, name);
+	}
+
 
     /**
      * Переопределение основного execute метода на вывод на экран списка заявок с указанным именем.
@@ -49,15 +45,5 @@ public class FindByNameItem implements UserAction {
             }
         }
         System.out.println("----------------- End of list --------------------");
-    }
-
-    /**
-     * Метод возвращает информацию о данном пункте меню.
-     *
-     * @return Строка меню: "5. Find items by name."
-     */
-    @Override
-    public String info() {
-        return FINDBYNAME + ". Find Items by Name.";
     }
 }

@@ -7,22 +7,17 @@ package ru.job4j.tracker;
  * @version 1.0
  * @since 2019.02.03
  */
-public class UpdateItem implements UserAction {
+public class UpdateItem extends BaseAction {
 
     /**
-     * Константа меню для редактирования заявки.
-     */
-    private static final String EDIT = "2";
-
-    /**
-     * Метод возвращает ключ опции EDIT.
+     * Конструтор инициализирующий поля.
      *
-     * @return ключ EDIT = 2
+     * @param key - номер меню.
+     * @param name - названия номера меню.
      */
-    @Override
-    public int key() {
-        return Integer.valueOf(EDIT);
-    }
+	public UpdateItem(int key, String name) {
+        super(key, name);
+	}
 
     /**
      * Переопределение основного метода execute на редактирование заявки.
@@ -48,15 +43,5 @@ public class UpdateItem implements UserAction {
         } else {
             System.out.println("--- Item with Id: '" + id + "' is missing in Tracker. ---");
         }
-    }
-
-    /**
-     * Метод возвращает информацию о данном пункте меню.
-     *
-     * @return Строка меню: "2. Edit Item."
-     */
-    @Override
-    public String info() {
-        return EDIT + ". Edit Item.";
     }
 }

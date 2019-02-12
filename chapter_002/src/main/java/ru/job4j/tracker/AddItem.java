@@ -6,25 +6,20 @@ import java.lang.*;
  * Реализация интерфейса UserAction для добавления новой заявки пользователем.
  *
  * @author Shvyrkov Yuri (mailto: shvyrkov@yandex.ru)
- * @version 1.0
+ * @version 1.1
  * @since 2019.02.03
  */
-public class AddItem implements UserAction {
+public class AddItem extends BaseAction {
 
     /**
-     * Константа меню для добавления новой заявки.
-     */
-    private static final String ADD = "0";
-
-    /**
-     * Метод возвращает ключ опции ADD.
+     * Конструтор инициализирующий поля.
      *
-     * @return ключ ADD = 0
+     * @param key - номер меню.
+     * @param name - названия номера меню.
      */
-    @Override
-    public int key() {
-        return Integer.valueOf(ADD);
-    }
+	public AddItem(int key, String name) {
+        super(key, name);
+	}
 
     /**
      * Переопределение основного метода execute на добавление заявки.
@@ -42,15 +37,5 @@ public class AddItem implements UserAction {
         System.out.println("------------ New Item with Id : " + item.getId());
         System.out.println("------------ New Item with Name : " + item.getName());
         System.out.println("------------ New Item with Description : " + item.getDesc());
-    }
-
-    /**
-     * Метод возвращает информацию о данном пункте меню.
-     *
-     * @return Строка меню: "1. Add new Item."
-     */
-    @Override
-    public String info() {
-        return ADD + ". Add new Item.";
     }
 }
