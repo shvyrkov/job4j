@@ -6,41 +6,35 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 /**
- * Класс TrackerEnumTest - тест для проверки "синглетности" TrackerEnum. (Enum) 
+ * Класс TrackerEagerTest - тест для проверки "синглетности" TrackerEager. (Eager loading)
  *
  * @author Shvyrkov Yuri (mailto: shvyrkov@yandex.ru)
  * @version 1.0
- * @since 2019.02.14
+ * @since 2019.02.15
  */
-public class TrackerEnumTest {
-/*
-	@Test
-	public void SingletonTestEnum() {
-	//	TrackerEnum expect = new TrackerEnum();
-	//	TrackerEnum result = new TrackerEnum();
-	//	assertThat(result, is(expect));
-	}
+public class TrackerEagerTest {
+
     @Test
-    public void SingletonTestEnumSameObjects() {
-        TrackerEnum expect = new TrackerEnum();
-        TrackerEnum result = new TrackerEnum();
+    public void SingletonTestEagerSameObjects() {
+        TrackerEager expect = new TrackerEager();
+        TrackerEager result = new TrackerEager();
         assertSame(result, is(expect));
     }
 
     @Test
-    public void SingletonTestEnumNotSameObjects() {
-        TrackerEnum expect = new TrackerEnum();
-        TrackerEnum result = new TrackerEnum();
+    public void SingletonTestEagerNotSameObjects() {
+        TrackerEager expect = new TrackerEager();
+        TrackerEager result = new TrackerEager();
         assertNotSame(result, is(expect));
     }
-*/
+
     /**
      * Тест проверяющий добавление заявки в трекер (add),
      * а также тест для возвращения копии массива (findAll).
      */
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
-      //  TrackerEnum tracker = new TrackerEnum(); // Не дает создать объект!
+        //  TrackerEnum tracker = new TrackerEnum(); // Не дает создать объект!
         Tracker tracker = new Tracker();
         Item item = new Item("test1", "testDescription", 123L);
         tracker.add(item);

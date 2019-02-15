@@ -3,18 +3,43 @@ package ru.job4j.tracker;
 import java.util.*;
 
 /**
- * Класс TrackerEnum - Singleton-реализация хранилища для заявок.
+ * Класс TrackerEager - Singleton-реализация  с использованием внутреннего статического класса(Lazy loading) хранилища для заявок.
  *
  * @author Shvyrkov Yuri (mailto: shvyrkov@yandex.ru)
  * @version 1.0
- * @since 2019.02.14
+ * @since 2019.02.15
  */
-public enum TrackerEnum {
-    INSTANCE;
+public class TrackerInnerClass {
 
-    TrackerEnum() {
-
+    /**
+     * Конструктор (default).
+     */
+    TrackerInnerClass() {
     }
+
+    /**
+     * Метод возвращает статическую константу INSTANCE инициализированную в статическом классе Holder.
+     * return - INSTANCE.
+     */
+    public static TrackerInnerClass getInstance() {
+        return Holder.INSTANCE;
+    }
+
+    /**
+     * Внутренний класс для  инициализации статической константы INSTANCE объектом типа TrackerInnerClass.
+     */
+    private static final class Holder {
+        private static final TrackerInnerClass INSTANCE = new TrackerInnerClass();
+    }
+
+    /**
+     * Запуск трекера.
+     * Обьекту tracker присваивается .
+     */
+    public static void main(String[] args) {
+        TrackerInnerClass tracker = TrackerInnerClass.getInstance();
+    }
+
     /**
      * Массив items для хранение заявок.
      */
@@ -141,10 +166,6 @@ public enum TrackerEnum {
             }
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-       // TrackerEnum tracker = new TrackerEnum();
     }
 }
 

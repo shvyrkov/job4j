@@ -6,34 +6,28 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 /**
- * Класс TrackerEnumTest - тест для проверки "синглетности" TrackerEnum. (Enum) 
+ * Класс TrackerInnerClassTest - тест для проверки "синглетности" TrackerInnerClass. (Lazy loading) 
  *
  * @author Shvyrkov Yuri (mailto: shvyrkov@yandex.ru)
  * @version 1.0
- * @since 2019.02.14
+ * @since 2019.02.15
  */
-public class TrackerEnumTest {
-/*
-	@Test
-	public void SingletonTestEnum() {
-	//	TrackerEnum expect = new TrackerEnum();
-	//	TrackerEnum result = new TrackerEnum();
-	//	assertThat(result, is(expect));
-	}
+public class TrackerInnerClassTest {
+
     @Test
-    public void SingletonTestEnumSameObjects() {
-        TrackerEnum expect = new TrackerEnum();
-        TrackerEnum result = new TrackerEnum();
+    public void SingletonTestInnerClassSameObjects() {
+        TrackerInnerClass expect = new TrackerInnerClass();
+        TrackerInnerClass result = new TrackerInnerClass();
         assertSame(result, is(expect));
     }
 
     @Test
-    public void SingletonTestEnumNotSameObjects() {
-        TrackerEnum expect = new TrackerEnum();
-        TrackerEnum result = new TrackerEnum();
+    public void SingletonTestInnerClassNotSameObjects() {
+        TrackerInnerClass expect = new TrackerInnerClass();
+        TrackerInnerClass result = new TrackerInnerClass();
         assertNotSame(result, is(expect));
     }
-*/
+
     /**
      * Тест проверяющий добавление заявки в трекер (add),
      * а также тест для возвращения копии массива (findAll).
