@@ -16,9 +16,10 @@ public class TrackerEager {
     private static final TrackerEager INSTANCE = new TrackerEager();
 
     /**
-     * Конструктор (default).
+     * Т.к. конструктор private - мы не сможем сделать экземпляр класса!!!
+     * Обращение только через .getInstance()
      */
-    TrackerEager() {
+    private TrackerEager() {
     }
 
     /**

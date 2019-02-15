@@ -12,9 +12,6 @@ import java.util.*;
 public enum TrackerEnum {
     INSTANCE;
 
-    TrackerEnum() {
-
-    }
     /**
      * Массив items для хранение заявок.
      */
@@ -144,7 +141,7 @@ public enum TrackerEnum {
     }
 
     public static void main(String[] args) {
-       // TrackerEnum tracker = new TrackerEnum();
+        // TrackerEnum tracker = new TrackerEnum();
     }
 }
 

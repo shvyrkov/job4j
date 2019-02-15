@@ -15,7 +15,7 @@ package ru.job4j.tracker;
  */
 public class LoadOrder {
 
-    private static String static_field = echo("static field");
+    private static String staticfield = echo("static field");
 
     private static final String STATIC_FINAL_FIELD = echo("static final field");
 

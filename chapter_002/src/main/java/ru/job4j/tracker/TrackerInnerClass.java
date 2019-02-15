@@ -12,9 +12,10 @@ import java.util.*;
 public class TrackerInnerClass {
 
     /**
-     * Конструктор (default).
+     * Т.к. конструктор private - мы не сможем сделать экземпляр класса!!!
+     * Обращение только через .getInstance()
      */
-    TrackerInnerClass() {
+    private TrackerInnerClass() {
     }
 
     /**
