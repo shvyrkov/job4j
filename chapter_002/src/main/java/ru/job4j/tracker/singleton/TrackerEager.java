@@ -1,6 +1,8 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.singleton;
 
 import java.util.*;
+
+import ru.job4j.tracker.*;
 
 /**
  * Класс TrackerEager - Singleton-реализация (Eager loading) хранилища для заявок.
@@ -28,14 +30,6 @@ public class TrackerEager {
      */
     public static TrackerEager getInstance() {
         return INSTANCE;
-    }
-
-    /**
-     * Запуск трекера.
-     * Обьекту tracker присваивается instance.
-     */
-    public static void main(String[] args) {
-        TrackerEager tracker = TrackerEager.getInstance();
     }
 
     /**

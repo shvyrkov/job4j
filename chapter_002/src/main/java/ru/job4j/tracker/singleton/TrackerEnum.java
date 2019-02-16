@@ -1,6 +1,8 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.singleton;
 
 import java.util.*;
+
+import ru.job4j.tracker.*;
 
 /**
  * Класс TrackerEnum - Singleton-реализация хранилища для заявок.

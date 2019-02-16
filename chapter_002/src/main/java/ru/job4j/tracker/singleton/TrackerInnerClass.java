@@ -1,45 +1,46 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.singleton;
 
 import java.util.*;
 
+import ru.job4j.tracker.*;
+
 /**
- * Класс TrackerLazy - Singleton-реализация (Lazy loading) хранилища для заявок.
+ * Класс TrackerEager - Singleton-реализация  с использованием внутреннего статического класса(Lazy loading) хранилища для заявок.
  *
  * @author Shvyrkov Yuri (mailto: shvyrkov@yandex.ru)
  * @version 1.0
  * @since 2019.02.15
  */
-public class TrackerLazy {
-    /**
-     * Статическое поле instance типа TrackerLazy.
-     */
-    private static TrackerLazy instance;
+public class TrackerInnerClass {
 
     /**
      * Т.к. конструктор private - мы не сможем сделать экземпляр класса!!!
      * Обращение только через .getInstance()
      */
-    private TrackerLazy() {
+    private TrackerInnerClass() {
     }
 
     /**
-     * Метод проверяет поле instance, если оно не инициализировано,
-     * то инициализирует объектом типа TrackerLazy. И больше его уже нельзя инициализировать, т.е. получаем 1 объект.
-     * return - инициализированное статическое поле.
+     * Метод возвращает статическую константу INSTANCE инициализированную в статическом классе Holder.
+     * return - INSTANCE.
      */
-    public static TrackerLazy getInstance() {
-        if (instance == null) {
-            instance = new TrackerLazy();
-        }
-        return instance;
+    public static TrackerInnerClass getInstance() {
+        return Holder.INSTANCE;
+    }
+
+    /**
+     * Внутренний класс для  инициализации статической константы INSTANCE объектом типа TrackerInnerClass.
+     */
+    private static final class Holder {
+        private static final TrackerInnerClass INSTANCE = new TrackerInnerClass();
     }
 
     /**
      * Запуск трекера.
-     * Обьекту tracker присваивается instance.
+     * Обьекту tracker присваивается .
      */
     public static void main(String[] args) {
-        TrackerLazy tracker = TrackerLazy.getInstance();
+        TrackerInnerClass tracker = TrackerInnerClass.getInstance();
     }
 
     /**
