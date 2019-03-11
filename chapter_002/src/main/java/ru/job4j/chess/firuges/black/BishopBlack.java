@@ -1,13 +1,15 @@
 package ru.job4j.chess.firuges.black;
 
+import ru.job4j.chess.*;
 import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
 
 /**
+ * Класс BishopBlack - движение черного слона.
  *
- * @author Petr Arsentev (parsentev@yandex.ru)
- * @version $Id$
- * @since 0.1
+ * @author Shvyrkov Yuri (mailto: shvyrkov@yandex.ru)
+ * @version 1.0
+ * @since 2019.03.11
  */
 public class BishopBlack implements Figure {
     private final Cell position;
@@ -23,7 +25,15 @@ public class BishopBlack implements Figure {
 
     @Override
     public Cell[] way(Cell source, Cell dest) {
-        return new Cell[] { dest };
+        Cell[] steps = new Cell[0];
+		int deltaX = dest.x - source.x;
+		int deltaY = dest.y - source.y;
+		//Дельты движения слона должны быть равны по модулю.
+        if (!(Math.abs(deltaX) == Math.abs(deltaY))) {
+			throw new ImposibleMoveException("Так слон не ходит");
+		}
+        steps = new Cell[] { dest };
+        return steps;
     }
 
     @Override

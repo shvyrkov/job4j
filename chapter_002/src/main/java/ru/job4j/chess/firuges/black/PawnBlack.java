@@ -24,7 +24,8 @@ public class PawnBlack implements Figure {
     @Override
     public Cell[] way(Cell source, Cell dest) {
         Cell[] steps = new Cell[0];
-        if (source.y == dest.y + 1 && source.x == dest.x) {
+        if (source.y == dest.y + 1 && source.x == dest.x) { 
+// '+' - т.к. это черные и пешка стоит на 7-й линии (из 8-ми) и ходит вниз, т.е. source.y больше dest.y на 1.
             steps = new Cell[] { dest };
         }
         return steps;
